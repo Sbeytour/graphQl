@@ -1,6 +1,7 @@
 import { getUserInfoQuery } from './queries.js';
 import { logout } from './login.js';
 import { fetchGraphQL, formatXP } from './utils.js';
+import { createAuditRatioPieChart } from './graphs.js';
 
 export const displayProfilePage = async () => {
     const mainContainer = document.getElementById('app');
@@ -69,11 +70,18 @@ export const displayProfilePage = async () => {
                 </div>
                 
                 <div class="statistics-section">
+                    <h2>Statistics</h2>
+                    <div id="statistics-container">
+                        <div id="audit-ratio-chart" class="chart-container"></div>
+                    </div>
                 </div>
             </div>
         `;
 
         document.getElementById('logout-button').addEventListener('click', logout);
+
+        // Create the audit ratio pie chart
+        createAuditRatioPieChart('audit-ratio-chart', user.totalUp || 0, user.totalDown || 0);
 
     } catch (error) {
         console.error('Failed to load profile:', error);

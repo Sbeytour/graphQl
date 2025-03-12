@@ -314,3 +314,80 @@ body {
         font-size: 1.5rem;
     }
 }
+
+/* Add these styles to the existing main.css file */
+
+/* Statistics Section */
+.statistics-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+}
+
+.statistics-section h2 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+}
+
+#statistics-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    min-height: 300px;
+}
+
+.chart-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 350px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.chart-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.no-data {
+    text-align: center;
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    margin: 2rem 0;
+}
+
+.chart-legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Make the chart responsive on smaller screens */
+@media (max-width: 600px) {
+    #statistics-container {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-container {
+        min-height: 300px;
+    }
+
+    .chart-legend {
+        flex-direction: column;
+        align-items: center;
+    }
+}

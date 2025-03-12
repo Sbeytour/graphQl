@@ -5,6 +5,8 @@ export const getUserInfoQuery = `
     firstName
     lastName
     auditRatio
+    totalUp
+    totalDown
     transactions(
       where: {eventId: {_eq: 41}, type: {_eq: "level"}}
       order_by: {amount: desc}
