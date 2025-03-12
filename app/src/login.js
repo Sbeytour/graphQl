@@ -6,7 +6,7 @@ export const displayLoginPage = () => {
     mainContainer.innerHTML = `
         <div class="login-container">
             <h1 class="login-title">Login</h1>
-            <div class="login-form">
+            <form class="login-form">
                 <div class="form-group">
                     <label for="username">Username or Email</label>
                     <input type="text" id="username" placeholder="Enter your username or email">
@@ -17,11 +17,15 @@ export const displayLoginPage = () => {
                 </div>
                 <div class="error-message" id="error-message"></div>
                 <button id="login-button" class="login-button">Sign In</button>
-            </div>
+            </form>
         </div>
     `;
 
-    document.getElementById('login-button').addEventListener('click', handleLogin);
+    document.querySelector('.login-form').addEventListener('submit', (e) => {
+        e.preventDefault()
+        handleLogin()
+    }
+    );
 }
 
 const handleLogin = async () => {

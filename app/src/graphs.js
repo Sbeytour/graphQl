@@ -76,7 +76,6 @@ export const createAuditRatioPieChart = (containerId, totalUp, totalDown) => {
         </div>
     `;
     
-    // Add elements to container
     container.appendChild(title);
     container.appendChild(svg);
     container.appendChild(legend);
@@ -89,7 +88,6 @@ export const createSkillsBarChart = (containerId, skillsData) => {
     
     container.innerHTML = '';
     
-    // If no data available
     if (!skillsData || skillsData.length === 0) {
         container.innerHTML = '<div class="no-data">No skills data available</div>';
         return;
