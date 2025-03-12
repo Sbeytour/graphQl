@@ -292,7 +292,6 @@ body {
     background-color: #2980b9;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     #app {
         padding: 1rem;
@@ -315,9 +314,7 @@ body {
     }
 }
 
-/* Add these styles to the existing main.css file */
-
-/* Statistics Section */
+/* Statistics Section Styles */
 .statistics-section {
     margin-top: 2rem;
     padding-top: 1.5rem;
@@ -333,7 +330,6 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 2rem;
-    min-height: 300px;
 }
 
 .chart-container {
@@ -341,9 +337,6 @@ body {
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     min-height: 350px;
     transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -353,6 +346,13 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
+.chart-title {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+    font-size: 1.2rem;
+}
+
 .no-data {
     text-align: center;
     color: #7f8c8d;
@@ -360,34 +360,55 @@ body {
     margin: 2rem 0;
 }
 
+/* Legend styles */
 .chart-legend {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 1rem;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
 }
 
 .legend-item {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.9rem;
-    color: #555;
 }
 
-/* Make the chart responsive on smaller screens */
-@media (max-width: 600px) {
+.color-box {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+}
+
+/* Scrollbar styling */
+.chart-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chart-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.chart-container::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 3px;
+}
+
+.chart-container::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+/* SVG text styling */
+svg text {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
     #statistics-container {
         grid-template-columns: 1fr;
-    }
-
-    .chart-container {
-        min-height: 300px;
-    }
-
-    .chart-legend {
-        flex-direction: column;
-        align-items: center;
     }
 }

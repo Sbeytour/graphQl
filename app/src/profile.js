@@ -1,13 +1,14 @@
-import { getUserInfoQuery } from './queries.js';
+import { getUserInfoQuery, getSkillsQuery } from './queries.js';
 import { logout } from './login.js';
 import { fetchGraphQL, formatXP } from './utils.js';
-import { createAuditRatioPieChart } from './graphs.js';
+import { createAuditRatioPieChart, createSkillsBarChart } from './graphs.js';
 
 export const displayProfilePage = async () => {
     const mainContainer = document.getElementById('app');
 
     try {
         const userData = await fetchGraphQL(getUserInfoQuery);
+        const skillsData = await fetchGraphQL(getSkillsQuery);
 
         const user = userData.user[0];
         const totalXP = user.transactions_aggregate.aggregate.sum.amount || 0;
@@ -73,6 +74,7 @@ export const displayProfilePage = async () => {
                     <h2>Statistics</h2>
                     <div id="statistics-container">
                         <div id="audit-ratio-chart" class="chart-container"></div>
+                        <div id="skills-chart" class="chart-container"></div>
                     </div>
                 </div>
             </div>
@@ -80,8 +82,8 @@ export const displayProfilePage = async () => {
 
         document.getElementById('logout-button').addEventListener('click', logout);
 
-        // Create the audit ratio pie chart
         createAuditRatioPieChart('audit-ratio-chart', user.totalUp || 0, user.totalDown || 0);
+        createSkillsBarChart('skills-chart', skillsData.transaction || []);
 
     } catch (error) {
         console.error('Failed to load profile:', error);

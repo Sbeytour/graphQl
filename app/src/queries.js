@@ -24,3 +24,12 @@ export const getUserInfoQuery = `
   }
 }
 `;
+
+export const getSkillsQuery = `
+{
+  transaction(where: {type: {_ilike: "%skill%"}}) {
+    type
+    amount
+  }
+}
+`;
