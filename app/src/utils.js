@@ -1,6 +1,6 @@
 import { logout } from "./login.js";
 
-const fetchGraphQL = async (query) => {
+export const fetchGraphQL = async (query) => {
     const token = localStorage.getItem('token');
 
     if (!token) {
@@ -14,7 +14,7 @@ const fetchGraphQL = async (query) => {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             },
-            body: JSON.stringify(query)
+            body: JSON.stringify({ query })
         });
 
         if (!response.ok) {
@@ -34,3 +34,12 @@ const fetchGraphQL = async (query) => {
         logout();
     }
 }
+
+export const formatXP = (xp) => {
+    if (xp >= 1000000) {
+        return `${(xp / 1000000).toFixed(2)} MB`;
+    } else if (xp >= 1000) {
+        return `${(xp / 1000).toFixed(1)} kB`;
+    }
+    return xp.toString();
+};

@@ -22,8 +22,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 2rem;
 }
 
+/* Login Styles */
 .login-container {
     background-color: white;
     border-radius: 8px;
@@ -101,6 +103,7 @@ body {
     color: #7f8c8d;
 }
 
+/* Profile Styles */
 .profile-container {
     width: 100%;
     background-color: white;
@@ -118,6 +121,11 @@ body {
     border-bottom: 1px solid #eee;
 }
 
+.profile-header h1 {
+    color: #2c3e50;
+    font-size: 1.8rem;
+}
+
 .logout-button {
     background-color: #e74c3c;
     color: white;
@@ -131,4 +139,178 @@ body {
 
 .logout-button:hover {
     background-color: #c0392b;
+}
+
+.profile-info-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.info-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    background-color: #3498db;
+    color: white;
+    padding: 1rem;
+}
+
+.card-header h2 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.info-item {
+    margin-bottom: 0.75rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-label {
+    font-weight: 600;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+.info-value {
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+/* XP Card */
+.xp-card .card-header {
+    background-color: #27ae60;
+}
+
+.xp-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+.xp-amount {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #27ae60;
+}
+
+.xp-label {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    margin-top: 0.25rem;
+}
+
+/* Level Card */
+.level-card .card-header {
+    background-color: #9b59b6;
+}
+
+.level-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.level-amount {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #9b59b6;
+}
+
+/* Statistics Section */
+.statistics-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+}
+
+.statistics-section h2 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+}
+
+#statistics-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    min-height: 300px;
+}
+
+/* Error Container */
+.error-container {
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+}
+
+.error-container h2 {
+    color: #e74c3c;
+    margin-bottom: 1rem;
+}
+
+.error-container p {
+    margin-bottom: 1.5rem;
+    color: #7f8c8d;
+}
+
+.retry-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 0.5rem;
+}
+
+.retry-button:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #app {
+        padding: 1rem;
+    }
+
+    .profile-container {
+        padding: 1.5rem;
+    }
+
+    .profile-info-section {
+        grid-template-columns: 1fr;
+    }
+
+    #statistics-container {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-header h1 {
+        font-size: 1.5rem;
+    }
 }
